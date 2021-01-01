@@ -1,0 +1,24 @@
+{
+    "name": "irfantoor/terminal",
+    "description": "Terminal for your cli or html clients",
+    "type": "library",
+    "keywords": ["terminal", "cli", "console", "html", "browser", "client"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Irfan TOOR",
+            "email": "email@irfantoor.com",
+            "homepage": "https://irfantoor.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "irfantoor/test": "~0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "IrfanTOOR\\": "src/"
+        }
+    }
+}
