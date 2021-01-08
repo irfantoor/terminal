@@ -24,7 +24,7 @@ class Terminal
 {
     const NAME        = "Terminal";
     const DESCRIPTION = "Terminal for your cli or html clients";
-    const VERSION     = "0.1.1";
+    const VERSION     = "0.1.2";
 
     /** @var string -- "cli" or "html" */
     protected $client_type;

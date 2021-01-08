@@ -12,8 +12,12 @@
             "role": "Developer"
         }
     ],
-    "require": {},
-    "require-dev": {},
+    "require": {
+        "php": ">= 7.3"
+    },
+    "require-dev": {
+        "irfantoor/mini-loader": "~0.1"
+    },
     "autoload": {
         "psr-4": {
             "IrfanTOOR\\": "src/"
