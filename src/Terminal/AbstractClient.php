@@ -55,10 +55,6 @@ abstract class AbstractClient
             'footnote' => 'dark',
             'url'      => 'blue, underline',
         ];
-
-        # default path is the path of dir containing this file
-        $this->path = __DIR__;
-        chdir($this->path);
     }
 
     /**
