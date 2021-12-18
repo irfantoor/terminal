@@ -1,5 +1,9 @@
 <?php
 
+# execute this on terminal php shell.php
+# --OR--
+# serve this file on a server e.g. php -S localhost:8000 shell.php
+
 require dirname(__DIR__) . "/vendor/autoload.php";
 
 use IrfanTOOR\Terminal;

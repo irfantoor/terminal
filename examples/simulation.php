@@ -12,9 +12,9 @@ for (;;) {
     $t->discardReads(3);
     
     # read the variables from console/browser
-    $age      = $t->read("What is your age? (years only) ", "red");
-    $upfront  = $t->read("How much you can pay up front? (in euro) ", "red"); 
-    $permonth = $t->read("How much you can pay per month? (in euro) ", "red");
+    $age      = $t->read("What is your age? (years only) ");
+    $upfront  = $t->read("How much you can pay up front? (in euro) "); 
+    $permonth = $t->read("How much you can pay per month? (in euro) ");
     
     # helps reading in the browser
     if ($t->isReading())
@@ -24,7 +24,7 @@ for (;;) {
     $value = $upfront + (70 - $age) * $permonth * 12;
 
     # print the result
-    $t->writeln("you can buy a house of: " . $value . " Euro", "dark");
+    $t->writeln("you can buy a house of: " . $value . " Euro", "bg_red, white");
     
     # press enter to continue
     $t->discardReads(); 

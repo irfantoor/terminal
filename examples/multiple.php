@@ -2,20 +2,16 @@
 
 require dirname(__DIR__) . "/vendor/autoload.php";
 
-$t = new IrfanTOOR\Terminal;
+use IrfanTOOR\Terminal;
 
-# Banner
-# when the text to write is passed as an array of lines, it is displayed as banner
-$t->writeMultiple(["White on Red Banner: Hello World!"], "bg_blue, white");
+$t = new Terminal();
 
+# to write multiple lines use writeMultiple and pass multiple lines as array
 $t->writeMultiple(
     [
-        "Its a banner when the text to write is passed as an array of lines, it is displayed as banner",
-        "styles: ['bg_light_yellow', 'black']",
-        "With multiple lines",
-        "    and smiles! :-)",
-    ],
-    "bg_light_yellow, red"
+        "All of these lines",
+        "are printed with white on red background ...",
+        " ;-) "
+    ], "bg_red, white"
 );
 
-$t->writeMultiple(["White on Red Banner: Hello World!"], "bg_red, white");
