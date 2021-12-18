@@ -1,6 +1,6 @@
 {
     "name": "irfantoor/terminal",
-    "description": "Terminal for your cli or html clients",
+    "description": "Irfan's Terminal : A terminal for your cli or html clients",
     "type": "library",
     "keywords": ["terminal", "cli", "console", "html", "browser", "client"],
     "license": "MIT",
