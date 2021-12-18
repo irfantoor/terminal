@@ -6,7 +6,7 @@ use IrfanTOOR\Test;
 
 class CliClientTest extends Test
 {
-    function testCliClientInstance()
+    function test_instance()
     {
         $t = new Terminal();
         $this->assertInstanceOf(Terminal::class, $t);
@@ -16,7 +16,7 @@ class CliClientTest extends Test
         $this->assertInstanceOf(CliClient::class, $t->getClient());
     }
 
-    function testCliClientCanRead()
+    function test_cli_read()
     {
         $t = new Terminal();
 
@@ -36,7 +36,7 @@ class CliClientTest extends Test
         fclose($handle);
     }
 
-    function testCliClientCanWrite()
+    function test_cli_write()
     {
         $t = new Terminal();
 
@@ -53,7 +53,7 @@ class CliClientTest extends Test
         $this->assertEquals('Hello World!' . PHP_EOL, $output);
     }
 
-    function testCliClientCanWriteWithStyle()
+    function test_cli_write_with_style()
     {
         $t = new Terminal();
         $supported = stream_isatty(STDOUT);
@@ -75,7 +75,7 @@ class CliClientTest extends Test
         }
     }
 
-    function testCliClientCanWriteMultipleLines()
+    function test_cli_writeMultiple()
     {
         $t = new Terminal();
 

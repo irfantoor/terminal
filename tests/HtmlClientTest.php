@@ -6,14 +6,14 @@ use IrfanTOOR\Test;
 
 class HtmlClientTest extends Test
 {
-    function testHtmlClientInstance()
+    function test_instance()
     {
         $t = new Terminal("html");
         $this->assertInstanceOf(Terminal::class, $t);
         $this->assertInstanceOf(HtmlClient::class, $t->getClient());
     }
 
-    function testHtmlClientCanRead()
+    function test_html_read()
     {
         $t = new terminal("html");
 
@@ -31,7 +31,7 @@ class HtmlClientTest extends Test
         // fclose($handle);
     }
 
-    function testHtmlClientCanWrite()
+    function test_html_write()
     {
         $t = new HtmlClient();
 
@@ -61,7 +61,7 @@ class HtmlClientTest extends Test
         $this->assertEquals('<pre style="padding:0; margin:0"> </pre>', $output);
     }
 
-    function testHtmlClientCanWriteWithStyle()
+    function test_html_write_with_style()
     {
         $t = new HtmlClient();
 
@@ -81,7 +81,7 @@ class HtmlClientTest extends Test
         }
     }
     
-    function testHtmlClientCanWriteMultipleLines()
+    function test_html_writeMultiple()
     {
         $t = new Terminal("html");
 

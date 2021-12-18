@@ -11,13 +11,13 @@ use IrfanTOOR\Test;
 
 class TerminalTest extends Test
 {
-    function testTerminalClassExists()
+    function test_instance()
     {
         $t = new Terminal();
         $this->assertInstanceOf(Terminal::class, $t);
     }
 
-    function testgetStyles()
+    function test_getStyles()
     {
         $t = new Terminal();
         $styles = $t->getStyles();
@@ -35,7 +35,7 @@ class TerminalTest extends Test
         }
     }
 
-    function testGetTheme()
+    function test_getTheme()
     {
         $t = new Terminal();
         $theme = $t->getTheme();
@@ -51,7 +51,7 @@ class TerminalTest extends Test
         $this->assertTrue(isset($theme['success']));
     }
 
-    function testSetOutput()
+    function test_setOutput()
     {
         $t = new Terminal();
 
@@ -93,7 +93,7 @@ class TerminalTest extends Test
         fclose($handle);
     }
 
-    function testObStart()
+    function test_ob_start()
     {
         $t = new Terminal();
 
@@ -124,7 +124,7 @@ class TerminalTest extends Test
         $this->assertEquals("Hello", $output);
     }
 
-    function testObGetLevel()
+    function test_ob_get_level()
     {
         $t = new Terminal();
 
@@ -144,7 +144,7 @@ class TerminalTest extends Test
     }
 
     # ob_end_clean
-    function testObEndLevel()
+    function test_ob_end_clean()
     {
         $t = new Terminal();
 
@@ -159,7 +159,7 @@ class TerminalTest extends Test
     }
 
 
-    function testObClean()
+    function test_ob_clean()
     {
         $t = new Terminal();
 
@@ -176,7 +176,7 @@ class TerminalTest extends Test
         $this->assertEquals(0, $t->ob_get_level());
     }
 
-    function testObGetClean()
+    function test_ob_get_clean()
     {
         $t = new Terminal();
 
@@ -193,7 +193,7 @@ class TerminalTest extends Test
         $this->assertEquals(0, $t->ob_get_level());
     }
 
-    function testObFlush()
+    function test_ob_flush()
     {
         $t = new Terminal();
 
@@ -217,7 +217,7 @@ class TerminalTest extends Test
         $this->assertEquals(0, $t->ob_get_level());
     }
 
-    function testObGetFlush()
+    function test_ob_get_flush()
     {
         $t = new Terminal();
 
@@ -242,7 +242,7 @@ class TerminalTest extends Test
         $this->assertEquals(0, $t->ob_get_level());
     }
 
-    function testObEndFlush()
+    function test_ob_end_flush()
     {
         $t = new Terminal();
 
@@ -260,7 +260,7 @@ class TerminalTest extends Test
         $this->assertEquals("WorldHello", $output_dumped);
     }
 
-    function testObGetLength()
+    function test_ob_get_length()
     {
         $t = new Terminal();
 
