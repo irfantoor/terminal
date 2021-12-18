@@ -11,7 +11,7 @@
 namespace IrfanTOOR\Terminal;
 
 /**
- * AbstractClient is a base class to be used for CliClient or HtmlClient 
+ * AbstractClient is a base class to be used for CliClient or HtmlClient
  */
 abstract class AbstractClient
 {
@@ -36,6 +36,9 @@ abstract class AbstractClient
     /** @var string -- root path - to be used when executing commands */
     protected $path;
 
+    /** @var bool the output shows the ansi colors or not  */
+    protected $ansi;
+
     /**
      * Basic constructor, defines the base path and theme
      */
@@ -55,6 +58,17 @@ abstract class AbstractClient
             'footnote' => 'dark',
             'url'      => 'blue, underline',
         ];
+
+        $this->ansi =
+            (defined('STDOUT') && !stream_isatty(STDOUT))
+            ? false
+            : true
+        ;
+    }
+
+    public function ansi(bool $ansi)
+    {
+        $this->ansi = $ansi;
     }
 
     /**
@@ -160,7 +174,7 @@ abstract class AbstractClient
     }
 
     /**
-     * Flushes the current buffer to output stream, reduce level and return the 
+     * Flushes the current buffer to output stream, reduce level and return the
      * flushed contents as well
      *
      * @return string
@@ -180,7 +194,7 @@ abstract class AbstractClient
 
     /**
      * Flushes contents of all the buffered contents at all levels,
-     * in the reverse order of buffering 
+     * in the reverse order of buffering
      */
     public function ob_end_flush()
     {
@@ -204,7 +218,7 @@ abstract class AbstractClient
      *
      * @return array The definition of styles color => definition
      */
-    # 
+    #
     public function getStyles(): array
     {
         return $this->styles;
@@ -258,11 +272,7 @@ abstract class AbstractClient
     /**
      * @see IrfanTOOR\Terminal::write
      */
-    abstract public function write(
-        string $text,
-        ?string $styles = null,
-        bool $force_ansi = false
-    );
+    abstract public function write(string $text, ?string $styles = null);
 
     /**
      * @see IrfanTOOR\Terminal::writeln

@@ -17,14 +17,14 @@ use IrfanTOOR\Terminal\{
 };
 
 /**
- * Terminal which function as a CliClient or HtmlCLient according to the 
+ * Terminal which function as a CliClient or HtmlCLient according to the
  * Environment i.e. Output colors etc. are normalized according to medium
  */
 class Terminal
 {
     const NAME        = "Terminal";
     const DESCRIPTION = "Terminal for your cli or html clients";
-    const VERSION     = "0.1.3";
+    const VERSION     = "0.2";
 
     /** @var string -- "cli" or "html" */
     protected $client_type;
@@ -95,15 +95,10 @@ class Terminal
      *
      * @param string      $text
      * @param null|string $style
-     * @param bool        $foce_ansi forces the ansi color output
      */
-    public function write(
-        string $text,
-        ?string $styles = null,
-        bool $force_ansi = false
-    )
+    public function write(string $text, ?string $styles = null)
     {
-        $this->client->write($text, $styles, $force_ansi);
+        $this->client->write($text, $styles);
     }
 
     /**
@@ -111,32 +106,22 @@ class Terminal
      *
      * @param string      $text
      * @param null|string $style
-     * @param bool        $foce_ansi forces the ansi color output
      */
-    public function writeln(
-        string $text = "",
-        ?string $styles = null,
-        bool $force_ansi = false
-    )
+    public function writeln(string $text = "", ?string $styles = null)
     {
-        $this->client->writeln($text, $styles, $force_ansi);
+        $this->client->writeln($text, $styles);
     }
 
     /**
      * Writes multiple lines of text to terminal
      *
      * @param array       $text      Array of text lines to be written
-     * @param null|string $style     Style of 
+     * @param null|string $style     Style of
      * @param bool        $foce_ansi Forces the ansi color output
      */
-    public function writeMultiple(
-        array $text,
-        ?string $style = null,
-        $force_ansi = false
-    )
+    public function writeMultiple(array $text, ?string $style = null)
     {
-        foreach ($text as $txt) {
-            $this->writeln($txt, $style, $force_ansi);
-        }
+        foreach ($text as $txt)
+            $this->writeln($txt, $style);
     }
 }

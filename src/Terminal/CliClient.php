@@ -87,14 +87,10 @@ class CliClient extends AbstractClient
     /**
      * @see IrfanTOOR\Terminal::write
      */
-    public function write(
-        string $text,
-        ?string $styles = null,
-        bool $force_ansi = false
-    ) {
-        # only adds style to stdout, so that any redirection to a file or more,
-        # for example, will give the text only.
-        if (!$force_ansi && defined('STDOUT') && !stream_isatty(STDOUT)) {
+    public function write(string $text, ?string $styles = null)
+    {
+        if (!$this->ansi)
+        {
             if ($this->ob_level) {
                 $this->ob[$this->ob_level] .= $text;
                 return;
