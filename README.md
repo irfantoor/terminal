@@ -1,7 +1,6 @@
-# IrfanTOOR\Terminal
+# Irfan's Terminal
 
-Terminal for your cli or html clients. It is the continuation of
-irfantoor/console, which is abandoned in favour of this project.
+A terminal for your cli or html clients.
 
 ## Usage
 
@@ -20,8 +19,15 @@ $t = new Terminal;
 $t->write("Hello ", "green");
 $t->writeln("World ", "red");
 
-# when a string of texts is given, a banner is printed
-$t->writeln(['Its a banner'], 'bg_blue, white');
+# use writeMultiple to write multiple lines.
+$t->writeMultiple(
+    [
+        'These are multiple lines',
+        'with a common style applied',
+        'to all lines'
+    ], 
+    'bg_blue, white'
+);
 
 # reading from console
 $response = $t->read("Are you ok? [Y/N] ", "info");
@@ -93,7 +99,10 @@ or by using the function setTheme.
 ```php
 <?php
  
-$t = new IrfanTOOR\Terminal(
+require dirname(__DIR__) . "/vendor/autoload.php";
+
+$t = new IrfanTOOR\Terminal();
+$t->setTheme(
     [
         'info' => 'bg_black, yellow',
         'url'  => 'red, underline',
@@ -106,7 +115,7 @@ $t->writeln("https://github.com/irfantoor/console", "url");
 
 $t->setTheme(
     [
-        'url' => 'red, bg_yellow, underline'
+        'url' => 'red, bg_light_yellow, underline'
     ]
 );
 
